@@ -23,7 +23,7 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-8 text-center text-gray-400">
-          <p>&copy; 2025 OpenCohort. Open source software for healthcare analytics.</p>
+          <p>&copy; 2025 OpenCohort. Open source tools for health analytics.</p>
         </div>
       </div>
     </footer>
