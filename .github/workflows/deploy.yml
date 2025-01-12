@@ -23,6 +23,11 @@ jobs:
           npm ci
           npm run build
       
+      - name: Debug FTP connection
+        run: |
+          echo "Attempting to resolve FTP host..."
+          nslookup ${{ secrets.FTP_HOST }}
+      
       - name: Deploy to FTP server
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
@@ -31,4 +36,6 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/
           server-dir: ${{ secrets.FTP_TARGET_DIR }}
-          dangerous-clean-slate: true # Ensures a clean deployment
+          dangerous-clean-slate: true
+          timeout: 60000
+          log-level: verbose
